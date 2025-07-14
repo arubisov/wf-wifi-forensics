@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+- Static typing: mypy --strict must pass; no Any unless unavoidable and then # type: ignore  # SPEC:justify.
+- Docstrings: NumPy style.
+- Logging: always via utils.log.get_logger(__name__); never print().
+- Imports: absolute (from wf.storage import dao)—no relative dot hops outside package.
+- Use f-strings for string formatting.
+- Use the dao for all database calls. Never have SQL code directly exposed in modules - they must go through the dao.

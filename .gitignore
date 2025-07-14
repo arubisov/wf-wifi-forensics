@@ -1,5 +1,6 @@
 # project-specific
 data/
+test/
 # whitelist.csv
 
 # Byte-compiled / optimized / DLL files
