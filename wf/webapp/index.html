@@ -51,44 +51,34 @@
     <aside id="control-drawer">
       <button id="toggle-drawer">☰</button>
       <section id="layer-toggles">
-        <h3>Layers</h3>
-        <label><input type="checkbox" id="toggle-cluster" checked> Static APs</label>
+        <h2>Layers</h2>
         <label><input type="checkbox" id="toggle-heatmap"> Heat map of static APs</label>
-        <label><input type="checkbox" id="toggle-mobile-tracks" checked> Mobile tracks</label>
       </section>
       <section id="filter-chips">
-        <h3>Filters</h3>
+        <h2>Filters</h2>
+        <label><input type="checkbox" id="toggle-static-aps" checked> Static APs</label>
+        <label><input type="checkbox" id="toggle-mobile-tracks" checked> Mobile tracks</label>
         <!-- chips appear here -->
-      </section>
-      <section id="mac-search">
-        <h3>Search</h3>
-        <input type="text" id="search-mac" placeholder="MAC or SSID">
       </section>
       <section id="time-controls">
         <h3>Time Range</h3>
-        <input type="datetime-local" id="filter-from">
-        <input type="datetime-local" id="filter-to">
         <div id="time-slider"></div>
       </section>
       <section id="packet-filter">
         <h3>Packet Count</h3>
         <div id="packet-slider"></div>
-        <div class="slider-inputs">
-          <input type="number" id="packet-min" placeholder="Min packets">
-          <input type="number" id="packet-max" placeholder="Max packets">
-        </div>
       </section>
       <section id="points-filter">
-        <h3>Track Points</h3>
+        <h3>Mobile Track Points</h3>
         <div id="points-slider"></div>
-        <div class="slider-inputs">
-          <input type="number" id="points-min" placeholder="Min points">
-          <input type="number" id="points-max" placeholder="Max points">
-        </div>
+      </section>
+      <section id="mac-search">
+        <h3>Search</h3>
+        <input type="text" id="search-mac" placeholder="MAC or SSID">
       </section>
       <section id="draw-controls">
-        <button id="btn-draw">Draw selection</button>
-        <button id="btn-clear">Clear filters</button>
+        <button id="btn-apply">Apply</button>
+        <button id="btn-reset">Reset</button>
       </section>
     </aside>
 
@@ -98,8 +88,41 @@
       </div>
       <div id="atmos-pane">
         <h2>Atmospherics</h2>
-        <canvas id="statsChart"></canvas>
-        <div id="data-table"><!-- future DataTable goes here --></div>
+        <!-- New summary stats placeholders -->
+        <div id="atmos-summary">
+          <div><strong>Unique MACs:</strong> <span id="unique-macs">—</span></div>
+          <div><strong>Unique SSIDs:</strong> <span id="unique-ssids">—</span></div>
+        </div>
+        <!-- New horizontal bar charts -->
+        <div id="atmos-charts">
+          <div>
+            <h3>Encryption Types</h3>
+            <div style="height: 200px">
+              <canvas id="encryption-bar-chart"></canvas>
+            </div>
+          </div>
+          <div>
+            <h3>OUI Manufacturers</h3>
+            <div style="height: 200px">
+              <canvas id="oui-bar-chart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div id="data-table">
+          <h3>Top MACs</h3>
+          <table id="mac-counts-table">
+            <thead>
+              <tr>
+                <th>MAC</th>
+                <th>SSID</th>
+                <th>Count</th>
+              </tr>
+            </thead>
+            <tbody>
+            <!-- rows injected here by JS -->
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

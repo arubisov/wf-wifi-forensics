@@ -30,6 +30,23 @@ html, body {
   height: 30px;
 }
 
+#atmos-pane {
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+/* atmos charts side-by-side layout */
+#atmos-charts {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+#atmos-charts > div {
+  flex: 1;
+  min-width: 0;
+  /* ensure each chart can shrink so they share space evenly */
+}
+
 /* Main content area under header */
 #content {
   position: absolute;
@@ -99,6 +116,36 @@ html, body {
 }
 #control-drawer .chip-group input[type="checkbox"] {
   margin-right: 0.5rem;
+}
+
+#time-slider {
+  margin: 3rem auto 1rem;
+}
+
+.noUi-target {
+  width: 90%;
+  height: 10px;
+  margin: 2rem auto 1rem;
+  /* padding: 0 16px; */
+}
+
+.noUi-target .noUi-handle::before,
+.noUi-target .noUi-handle::after {
+    display: none;
+}
+
+.noUi-target .noUi-handle {
+  height: 18px;
+  width: 18px;
+  top: -5px;
+  right: -9px; /* half the width */
+  border-radius: 9px;
+  
+}
+
+.noUi-target .noUi-tooltip {
+  font-size: 10px; /* Adjust font size */
+  text-align: center; /* Center the text */
 }
 
 /* Search box */

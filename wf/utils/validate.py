@@ -88,3 +88,17 @@ class MobileTrack(BaseModel):
     device_type: Optional[str]
     n_obs: int
     points: list[MobileTrackPoint]
+    
+class UIFilter(BaseModel):
+    mac: Optional[list[str]] = None
+    ssid: Optional[list[str]] = None
+    encryption: Optional[list[str]] = None
+    oui: Optional[list[str]] = None
+    randomized: Optional[bool] = None
+    exclude_static: Optional[bool] = None
+    exclude_mobile: Optional[bool] = None
+    time_range: Optional[tuple[int, int]] = None  # UTC seconds 
+    packet_count: Optional[tuple[int, int]] = None
+    points_count: Optional[tuple[int, int]] = None
+    area: Optional[list[tuple[float, float]]] = None  # Polygon coordinates
+    # Add more as needed

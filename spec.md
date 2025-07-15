@@ -228,7 +228,9 @@ Stored in **`pipeline_cfg`**, tunable at runtime by passing a flag like --mode d
 
 #### 5.3.2 `atmos.py`
 
-Pure SQL aggregations.
+Implement fetchers that will provide all the data referenced in Section 5.6.5 Atmospherics pane
+
+Pure SQL aggregations along the lines of: 
 `SELECT encryption, COUNT(*) … GROUP BY encryption;`  
 `SELECT mac, COUNT(*) … ORDER BY COUNT DESC LIMIT 50;`
 
@@ -294,6 +296,19 @@ Pure SQL aggregations.
   * Number of observations
   * Earliest seen, last seen
 
+#### 5.6.5 Atmospherics pane
+
+Present the following summary with numbers pulled from the data that is being displayed and filtered:
+
+* 400 unique MACs
+* 75 unique SSIDs
+* 25 SSIDs with no encryption, 40 SSIDs with WPA2, 10 SSIDs with WPA3
+* Top 5 OUI manufacturers: ASUS, Apple, TP Link, Google, Huawei
+  * <horizontal bar chart showing relative frequency of those OUIs>
+* 200 Access points, only 27 with Clients
+* 11 passive handshakes detected
+* All local banks use same SSID: muchodinero
+* Scan period: 12 days, day (0700-1300) and night (1900-0300)
 
 ### 5.7 `cli.py`
 Commands:

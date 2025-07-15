@@ -1,0 +1,6 @@
+---
+alwaysApply: true
+---
+All comments should be written in all lower case, except for proper nouns.
+
+Does not apply to docstrings - use correct casing there.
